@@ -4,6 +4,7 @@ export const LayoutMain = () => {
   return (
     <div>
         <Navbar />
+
         <Outlet />
     </div>
   )

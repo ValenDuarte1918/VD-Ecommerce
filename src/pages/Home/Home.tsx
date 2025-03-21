@@ -9,7 +9,7 @@ export const Home = () => {
 
   const getProducts = async () => {
     try {
-      const response = await fetch('http://localhost:3000/products')
+      const response = await fetch('http://localhost:3000/products')   // npx json-server db.json
       const data = await response.json()
       setProducts(data)
     } catch (error) {
