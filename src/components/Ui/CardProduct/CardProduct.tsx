@@ -1,23 +1,31 @@
 import styles from './CardProduct.module.css' // Importa los estilos CSS específicos para este componente
-import { useContext } from 'react' // Importa useContext de React para usar el contexto
+import { useContext, FC } from 'react' // Importa useContext de React para usar el contexto
 import { CartContext } from '../../../context/CartContext' // Importa el contexto del carrito de compras
+import { Product } from '../../../interface' // Importa la interfaz Product para definir el tipo de producto
+import { CartProduct } from '../../../interface' // Importa la interfaz CartProduct para definir el tipo de producto en el carrito
+
+interface Props{
+    product: Product
+}
+
+
 
 // Define el componente CardProduct que recibe un objeto producto como prop
-export const CardProduct = ({product}) => {
+export const CardProduct: FC<Props>= ({product}) => {
 
     // Obtiene la función dispatch del contexto del carrito de compras
     const { dispatch } = useContext(CartContext);
 
     // Crea un objeto item basado en el producto recibido como prop
-    const item = {
-        id: product.tail, // Asigna el id del producto
+    const item: CartProduct = {
+        id: product.id, // Asigna el id del producto
         name: product.name, // Asigna el nombre del producto
         image: product.image, // Asigna la imagen del producto
         quantity: 1, // Inicializa la cantidad en 1
     }
 
     // Define la función addToCart que despacha una acción para agregar el item al carrito
-    const addToCart = (item) => {
+    const addToCart = (item:CartProduct) => {
         dispatch({type: 'ADD_TO_CART', payload: item})
     } 
 

@@ -1,4 +1,4 @@
-export interface Products {
+export interface Product {
     amiiboSeries: string;
     character:    string;
     gameSeries:   string;
@@ -17,4 +17,11 @@ export interface Release {
     eu: String;
     jp: String;
     na: String;
+}
+
+export interface CartProduct{
+    id: number
+    name: string
+    image: string
+    quantity: number
 }
