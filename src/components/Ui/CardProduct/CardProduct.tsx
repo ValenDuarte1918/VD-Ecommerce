@@ -3,6 +3,7 @@ import { useContext, FC } from 'react' // Importa useContext de React para usar 
 import { CartContext } from '../../../context/CartContext' // Importa el contexto del carrito de compras
 import { Product } from '../../../interface' // Importa la interfaz Product para definir el tipo de producto
 import { CartProduct } from '../../../interface' // Importa la interfaz CartProduct para definir el tipo de producto en el carrito
+import useCartContext from '../../../hook/useCartContext'
 
 interface Props{
     product: Product
@@ -14,14 +15,15 @@ interface Props{
 export const CardProduct: FC<Props>= ({product}) => {
 
     // Obtiene la función dispatch del contexto del carrito de compras
-    const { dispatch } = useContext(CartContext);
+    const { dispatch } = useCartContext();
 
     // Crea un objeto item basado en el producto recibido como prop
     const item: CartProduct = {
         id: product.id, // Asigna el id del producto
         name: product.name, // Asigna el nombre del producto
         image: product.image, // Asigna la imagen del producto
-        quantity: 1, // Inicializa la cantidad en 1
+        price: product.price, // Asigna el precio del producto
+        quantity: 1, // Inicializa la cantidad en 1ñ
     }
 
     // Define la función addToCart que despacha una acción para agregar el item al carrito
