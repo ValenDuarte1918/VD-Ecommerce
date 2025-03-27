@@ -4,6 +4,7 @@ import { CartContext } from '../../../context/CartContext' // Importa el context
 import { Product } from '../../../interface' // Importa la interfaz Product para definir el tipo de producto
 import { CartProduct } from '../../../interface' // Importa la interfaz CartProduct para definir el tipo de producto en el carrito
 import useCartContext from '../../../hook/useCartContext'
+import { toast, Toaster } from 'sonner'
 
 interface Props{
     product: Product
@@ -29,6 +30,7 @@ export const CardProduct: FC<Props>= ({product}) => {
     // Define la función addToCart que despacha una acción para agregar el item al carrito
     const addToCart = (item:CartProduct) => {
         dispatch({type: 'ADD_TO_CART', payload: item})
+        toast.success('Product added to cart') // Muestra un mensaje de éxito al agregar el producto al carrito
     } 
 
     // Renderiza el componente CardProduct
