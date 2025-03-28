@@ -1,23 +1,36 @@
 .container{
-    margin: 7rem;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .title{
-    color: #fff;
-      font-size: 2rem;
-  }
-  
-  .grid{
-    display: grid;
-      grid-template-columns: 50% 50%;
-      gap: 2rem;
-  }
-  
-  .tableContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  margin: 7rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  color: #fff;
+	font-size: 2rem;
+}
+
+.grid{
+  display: grid;
+	grid-template-columns: 50% 50%;
+	gap: 2rem;
+}
+
+.tableContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.buyButton{
+  all: unset;
+  background-color: #EDB00F;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px;
+  text-align: center;
+  width: 10%;
+  margin: 0 auto;
+}
   
