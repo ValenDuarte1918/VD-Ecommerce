@@ -5,10 +5,16 @@ import { CardProduct } from '../../components/Ui/CardProduct'
 import { getProducts } from '../../Service'
 import { Product } from '../../interface'
 import { Toaster } from 'sonner'
+import { useQuery } from '@tanstack/react-query'
 
 export const Home = () => {
 
-  const [products, setProducts] = useState<Product[]>([])
+  const { data, isLoading, error } = useQuery({
+    queryKey: ['products'], // Clave de consulta
+    queryFn: getProducts,   // Función de consulta
+  });
+
+/*  const [products, setProducts] = useState<Product[]>([])
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,7 +29,7 @@ export const Home = () => {
       setIsLoading(false)
     })
   }, [])
-
+*/
 
   return (
     <>
@@ -33,7 +39,7 @@ export const Home = () => {
     {isLoading && <p>Loading...</p>}
     {error && <p>Error loading products</p>}
     <div className= {styles.container}>
-      {products.map((product) => (
+      {data?.map((product) => (
         <CardProduct key={product.tail} product={product}/>
       ))}
 
@@ -43,3 +49,4 @@ export const Home = () => {
   )
 }
 
+export default Home
