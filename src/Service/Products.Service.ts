@@ -1,9 +1,8 @@
 import { Product } from "../interface";
 
-export const getProducts = async (page = 1): Promise<Product[]> => {
-  console.log("Fetching products for page:", page);
+export const getProducts = async (page = 0):Promise<Product[]> => {
   try {
-    const response = await fetch(`http://localhost:3000/products?_page=${page}&_limit=2`);
+    const response = await fetch(`http://localhost:3000/products?_page=${page}&_limit=20`);
     if (response.ok) {
       const data = await response.json();
       return data

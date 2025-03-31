@@ -20,7 +20,7 @@ export const CardProduct: FC<Props>= ({product}) => {
     // Crea un objeto item basado en el producto recibido como prop
         const item: CartProduct = {
         tail: product.tail, // Asigna el tail del producto
-        id: product.id, // Asigna el id del producto
+        id: product.id ?? 0, // Asigna el id del producto
         name: product.name, // Asigna el nombre del producto
         image: product.image, // Asigna la imagen del producto
         price: product.price, // Asigna el precio del producto
