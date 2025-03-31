@@ -1,6 +1,11 @@
 import { useNavigate } from "react-router-dom"
 import styles from "./Dashboard.module.css"
 import { useEffect, useState } from "react"
+import { useMutation } from "react-query"
+import { createProduct } from "../../Service"
+import { Product } from "../../interface"
+import { Toaster, toast } from "sonner"
+import { Navbar } from "../../components/Ui/NavBar"
 
 const Dashboard = () => {
 
@@ -39,12 +44,38 @@ const Dashboard = () => {
             [e.target.name]: e.target.value
         })
     }
+
+    const mutation = useMutation((newProduct: Product) => {
+        return createProduct(newProduct)
+    })
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(products)
+        mutation.mutate(products, {
+            onSuccess: () => {
+                toast.success("Producto agregado exitosamente!")
+                setProducts({
+                    amiiboSeries: "",
+                    character: "",
+                    gameSeries: "",
+                    head: "",
+                    image: "",
+                    name: "",
+                    releseDate: "",
+                    tail: "",
+                    type: "",
+                    price: 0
+                })
+            },
+            onError: () => {
+                toast.error("Hubo un error al agregar el producto.")
+            }
+        })
     }
 
   return (
+    <>
+    <Navbar/>
     <div className={styles.container}>
         <div>
             <h1>Dashboard</h1>
@@ -155,7 +186,9 @@ const Dashboard = () => {
                 <button type="submit">Add product</button>
             </div>
         </form>
+        <Toaster richColors visibleToasts={1}/>
     </div>
+    </>
   )
 }
 export default Dashboard

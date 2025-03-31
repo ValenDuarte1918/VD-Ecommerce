@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import styles from './Login.module.css'
 import { useNavigate } from 'react-router-dom'
-import { Toaster } from 'sonner'
+import { toast, Toaster } from 'sonner'
+import { Navbar } from '../../components/Ui/NavBar'
 
 const Login = () => {
 
@@ -21,18 +22,20 @@ const Login = () => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (userData.email.trim() == "" || userData.password.trim() == "") {
+            toast.error("Por favor, completa todos los campos.")
             return;
         }
         localStorage.setItem(
             "userLogin",
             JSON.stringify(userData.email)
         )
-
         navigate("/dashboard")
     }
 
 
   return (
+    <> 
+    <Navbar/>
     <div className= {styles.containerLogin}>
         <h1>Login</h1>
         <form onSubmit={handleSubmit} >
@@ -63,7 +66,9 @@ const Login = () => {
             <button type="submit">Login</button>
         </div>
         </form>
+        <Toaster richColors visibleToasts={1}/>
     </div>
+    </>
   )
 }
 
