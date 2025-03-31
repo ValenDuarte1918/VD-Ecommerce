@@ -1,10 +1,9 @@
 import styles from './CardProduct.module.css' // Importa los estilos CSS específicos para este componente
-import { useContext, FC } from 'react' // Importa useContext de React para usar el contexto
-import { CartContext } from '../../../context/CartContext' // Importa el contexto del carrito de compras
+import {  FC } from 'react' // Importa useContext de React para usar el contextoimport { CartContext } from '../../../context/CartContext' // Importa el contexto del carrito de compras
 import { Product } from '../../../interface' // Importa la interfaz Product para definir el tipo de producto
 import { CartProduct } from '../../../interface' // Importa la interfaz CartProduct para definir el tipo de producto en el carrito
 import useCartContext from '../../../hook/useCartContext'
-import { toast, Toaster } from 'sonner'
+import { toast } from 'sonner'
 
 interface Props{
     product: Product
@@ -19,7 +18,8 @@ export const CardProduct: FC<Props>= ({product}) => {
     const { dispatch } = useCartContext();
 
     // Crea un objeto item basado en el producto recibido como prop
-    const item: CartProduct = {
+        const item: CartProduct = {
+        tail: product.tail, // Asigna el tail del producto
         id: product.id, // Asigna el id del producto
         name: product.name, // Asigna el nombre del producto
         image: product.image, // Asigna la imagen del producto
@@ -41,9 +41,7 @@ export const CardProduct: FC<Props>= ({product}) => {
                 <h3 className={styles.cardTitle}>{product.name}</h3> {/* Muestra el nombre del producto */}
                 <div className={styles.cardBody}>
                     <p className={styles.cardType}>{product.type}</p> {/* Muestra el tipo del producto */}
-                    <p className={styles.cardPrice}> 
-                        price, <small> 00 </small> {/* Muestra el precio del producto */}
-                    </p>
+                    <p className={styles.cardPrice}>{product.price} $</p> {/* Muestra el precio del producto */}
                 </div>
                 <button className={styles.cardButton} onClick={() => addToCart(item)}> Add to cart</button> {/* Botón para agregar el producto al carrito */}
             </div>
