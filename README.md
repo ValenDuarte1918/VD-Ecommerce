@@ -14,22 +14,6 @@ Redux Toolkit: Manejo eficiente del estado global.
 
 React Query: Optimización de la gestión de datos asincrónicos.
 
-📂 Estructura del proyecto
-
-📦 nombre-del-proyecto
-├── 📂 src
-│   ├── 📂 components  # Componentes reutilizables
-│   ├── 📂 Context      # Funcionalidades específicas con Redux slices
-│   ├── 📂 hooks       # Hooks personalizados
-│   ├── 📂 pages       # Páginas principales de la aplicación
-│   ├── 📂 services    # Módulo para gestionar las solicitudes HTTP a la API
-│   ├── 📂 interface   # Definición de las interfaces y tipos utilizados en la aplicación
-│   ├── App.tsx       # Componente principal
-│   ├── main.tsx      # Punto de entrada
-├── 📄 package.json   # Dependencias y scripts
-├── 📄 tsconfig.json   # Configuración de TypeScript
-├── 📄 README.md       # Documentación
-
 📦 Instalación y ejecución
 
 🛠️ Instalación
