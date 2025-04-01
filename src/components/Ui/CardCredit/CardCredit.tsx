@@ -2,11 +2,25 @@ import React, { useState } from 'react'; // Asegúrate de importar React
 import Cards from 'react-credit-cards-2';
 import 'react-credit-cards-2/dist/es/styles-compiled.css';
 import styles from './CardCredit.module.css';
-import { toast } from 'sonner'
+import { toast } from 'sonner';
 import useCartContext from '../../../hook/useCartContext';
 import { CartProduct } from '../../../interface';
 
+/**
+ * Componente de tarjeta de crédito.
+ * Permite a los usuarios ingresar los datos de su tarjeta de crédito para realizar una compra.
+ * @component
+ */
 export const CardCredit = () => {
+    /**
+     * Estado para almacenar los datos de la tarjeta de crédito.
+     * @typedef {Object} CardData
+     * @property {string} number - Número de la tarjeta de crédito.
+     * @property {string} name - Nombre del titular de la tarjeta.
+     * @property {string} expiry - Fecha de expiración de la tarjeta (MM/YY).
+     * @property {string} cvc - Código de seguridad de la tarjeta.
+     * @property {string} focused - Campo actualmente enfocado.
+     */
     const [cardData, setCardData] = useState({
         number: '',
         name: '',
@@ -15,10 +29,15 @@ export const CardCredit = () => {
         focused: ''
     });
 
-    const {dispatch} = useCartContext ();
+    const { dispatch } = useCartContext();
 
     const { number, name, expiry, cvc, focused } = cardData;
 
+    /**
+     * Maneja los cambios en los campos del formulario.
+     * Actualiza el estado `cardData` con los valores ingresados por el usuario.
+     * @param {React.ChangeEvent<HTMLInputElement>} e - Evento de cambio en el input.
+     */
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setCardData({
             ...cardData,
@@ -26,6 +45,11 @@ export const CardCredit = () => {
         });
     };
 
+    /**
+     * Maneja el evento de enfoque en los campos del formulario.
+     * Actualiza el estado `focused` con el nombre del campo actualmente enfocado.
+     * @param {React.FocusEvent<HTMLInputElement>} e - Evento de enfoque en el input.
+     */
     const handleInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
         setCardData({
             ...cardData,
@@ -33,6 +57,11 @@ export const CardCredit = () => {
         });
     };
 
+    /**
+     * Maneja el envío del formulario.
+     * Valida que todos los campos estén completos, limpia el carrito y muestra un mensaje de éxito.
+     * @param {React.FormEvent<HTMLFormElement>} e - Evento de envío del formulario.
+     */
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         // Validar que los campos no estén vacíos
@@ -47,7 +76,7 @@ export const CardCredit = () => {
             cvc: '',
             focused: ''
         });
-        dispatch({type: 'CLEAR_CART', payload: {} as CartProduct});
+        dispatch({ type: 'CLEAR_CART', payload: {} as CartProduct });
         toast.success('Compra realizada con éxito');
     };
 
@@ -122,4 +151,3 @@ export const CardCredit = () => {
 };
 
 export default CardCredit;
-

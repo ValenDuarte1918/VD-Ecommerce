@@ -1,54 +1,58 @@
-# React + TypeScript + Vite
+Proyecto: Duarte-Ecommerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+📌 Descripción
 
-Currently, two official plugins are available:
+Este proyecto es una aplicación desarrollada con React, TypeScript y Redux, que implementa buenas prácticas en el manejo del estado global y la gestión de datos asincrónicos. La aplicación permite agregar productos al carrito de compras en donde el el usuario puede realizar el pago de los mismo. Ademas, tiene la pagina de DashBoard en donde se puede agregar productos mediante un logeo previo. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🚀 Tecnologías utilizadas
 
-## Expanding the ESLint configuration
+React: Biblioteca para la construcción de interfaces de usuario.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+TypeScript: Superset de JavaScript que aporta tipado estático.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Redux Toolkit: Manejo eficiente del estado global.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+React Query: Optimización de la gestión de datos asincrónicos.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+📂 Estructura del proyecto
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+📦 nombre-del-proyecto
+├── 📂 src
+│   ├── 📂 components  # Componentes reutilizables
+│   ├── 📂 Context      # Funcionalidades específicas con Redux slices
+│   ├── 📂 hooks       # Hooks personalizados
+│   ├── 📂 pages       # Páginas principales de la aplicación
+│   ├── 📂 services    # Módulo para gestionar las solicitudes HTTP a la API
+│   ├── 📂 interface   # Definición de las interfaces y tipos utilizados en la aplicación
+│   ├── App.tsx       # Componente principal
+│   ├── main.tsx      # Punto de entrada
+├── 📄 package.json   # Dependencias y scripts
+├── 📄 tsconfig.json   # Configuración de TypeScript
+├── 📄 README.md       # Documentación
+
+📦 Instalación y ejecución
+
+🛠️ Instalación
+
+Clonar el repositorio:
+
+https://github.com/ValenDuarte1918/VD-Ecommerce.git
+
+Navegar al directorio del proyecto:
+
+cd ecommerce
+
+Instalar dependencias:
+
+npm install 
+
+Iniciar el servidor de JSON Server:
+
+npx json-server db.json
+
+📬 Contacto
+
+Si tienes dudas o sugerencias, puedes contactarme por:
+
+📧 Email: valentinduarte1@hotmail.com
+🔗 LinkedIn: Valentín Duarte
