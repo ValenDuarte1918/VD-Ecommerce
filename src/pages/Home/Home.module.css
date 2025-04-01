@@ -46,3 +46,16 @@
 	transition: 0.5s ease-in-out;
 	width: 160px;
 }
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #EDB00F;
+}
+.text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #EDB00F;
+}

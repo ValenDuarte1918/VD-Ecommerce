@@ -31,7 +31,8 @@ const totalPay= ()=> {
     </tr>
   </thead>
   <tbody>
-    {cartItems.map((item) => (
+  {cartItems.length > 0 ? (
+    cartItems.map((item) => (
       <tr key={item.id}>
         <td>
           <p>{item.name}</p>
@@ -61,8 +62,15 @@ const totalPay= ()=> {
           <p>${item.quantity * item.price}</p>
         </td>
       </tr>
-    ))}
-  </tbody>
+    ))
+  ) : (
+    <tr>
+      <td colSpan={5} className={styles.emptyRow}>
+        No hay productos en el carrito.
+      </td>
+    </tr>
+  )}
+</tbody>
 </table>
     <div className={styles.modalTotalContainer}>
       <h3>Total: ${totalPay()}</h3>

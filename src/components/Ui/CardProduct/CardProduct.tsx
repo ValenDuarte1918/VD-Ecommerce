@@ -9,8 +9,6 @@ interface Props{
     product: Product
 }
 
-
-
 // Define el componente CardProduct que recibe un objeto producto como prop
 export const CardProduct: FC<Props>= ({product}) => {
 

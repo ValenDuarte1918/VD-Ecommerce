@@ -27,22 +27,22 @@ const Home = () => {
           ))}
       </div>
       <div className={styles.paginationContainer}>
-        <button
-        onClick= {() => setPage(page + 1 )}
-        className={styles.paginationButton} 
-        > 
-        Next page
-        </button>
-        <div className={styles.paginationActive}>
-        <span >{page}</span>
-        </div>
-        <button
-        className={styles.paginationButton}
-        onClick = {() => setPage(page - 1 )}
-        disabled={page === 1}
-        > 
-        Previe page
-        </button>
+          <button
+          onClick= {() => setPage(page - 1 )}
+          className={styles.paginationButton} 
+          disabled={page === 1}
+          > 
+          Previe page
+          </button>
+          <div className={styles.paginationActive}>
+          <span >{page}</span>
+          </div>
+          <button
+          className={styles.paginationButton}
+          onClick = {() => setPage(page + 1 )}
+          > 
+          Next page
+          </button>
       </div>
     </>
   )
